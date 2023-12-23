@@ -11,7 +11,7 @@ router.get('/register', userController.register);
 router.get('/login', userController.login);
 
 // add passport middleware to the protected route
-router.get('/home', userController.home);
+router.get('/home', passport.authenticate('jwt', {session: false}), userController.home);
 
 router.post('/shorten', shortIdController.shortenUrl);
 router.get('/:shortId', shortIdController.redirect);

@@ -1,0 +1,64 @@
+URL Shortening App Documentation
+
+Your URL shortening app is a service that allows users to shorten lengthy URLs and provides secure access to the original destination. This documentation outlines the installation process, API endpoints, security measures, and other essential information for developers and users.
+
+API Endpoints:
+
+I. Shorten URL
+Endpoint: POST /shorten
+Description: Shortens a lengthy URL and stores it in the database.
+
+Request: {
+  "url": "https://example.com/longurl"
+}
+Response: {
+  "originalUrl": "https://example.com/long/url/path",
+  "shortId": "1mcJieOK4D" (just example)
+}
+
+II. Redirect
+Endpoint: GET /:shortId
+Description: Redirects users to the original destination based on the short URL.
+Example: http://localhost:8000/abc123
+
+III. User Registration
+Endpoint: POST /register
+Description: Registers a new user account.
+Request:{
+  "username": "user123",
+  "password": "password123"
+  "cnfpassword": "password123"
+}
+Response: {
+  "message": "User registered successfully",
+  "username": "user123"
+}
+
+IV. User Login
+Endpoint: POST /login
+Description: Logs in an existing user.
+Request:{
+  "username": "user123",
+  "password": "password123"
+}
+Response: {
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyMTIzIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+
+IF YOU WANT TO GO TO THE HOME PAGE TO HAVE A GOOD USER EXPERIENCE THEN YOU NEED TO INCLUDE THE BEARER TOKEN IN THE HEADER OF REQUEST BEING MADE.
+
+EXAMPLE: 
+
+Key                                    Value
+Authorization                          Bearer 
+                                       eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTg2OWQ5YmVhZmJjNTMxOWY1ODhmMjMiLCJpYXQiOjE3MDMzMjM0MzMsImV4cCI6MTcwMzMyNzAzM30.Nn1stD67s-t3BeSCwk1VzYN-kus4Ycd9l-I0slMMH-s
+
+
+
+Security
+Authentication
+The app uses a token-based authentication system for user registration and login.
+JWT (JSON Web Tokens) are utilized for secure user authentication.
+Data Storage
+User passwords are securely hashed before storing them in the database.
+The database schema is designed to ensure the security and integrity of user information and shortened URLs.
