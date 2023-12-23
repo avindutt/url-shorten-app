@@ -1,0 +1,30 @@
+<!-- index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="/css/home.css"> <!-- Link to your stylesheet -->
+</head>
+<body>
+  <div class="container">
+    <h1>Make every <b style="color: rgba(22, 22, 235, 0.756);">connection</b> count</h1>
+    <p class="bio">Create short links, QR Codes, and Link-in-bio pages. Share them anywhere.</p>
+    <h1>URL Shortener</h1>
+    <form action="/shorten" method="post" class="form">
+      <label for="originalUrl">Enter URL:</label>
+      <input type="url" id="originalUrl" name="url" placeholder="https://example.com" required>
+      <button type="submit" class="shorten">Shorten URL</button>
+    </form>
+
+    <p class="para bio textcenter">No credit card required. Your free plan includes:</p>
+    <ul class="bio textcenter">
+        <li>Short Links</li>
+        <li>QR Codes</li>
+        <li>Link-in-bio page</li>
+    </ul>
+  </div>
+</body>
+</html>
